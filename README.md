@@ -5,9 +5,9 @@
 
 ### Download and install the software    
 ### Install the `platformio-ide-terminal`   
-### Clone a repo ###   
+### Clone a repo   
 ### Open a terminal and npm install the package.json via `npm install`   
-### Install the gulpcli via `npm install -g gulp-cli`   
+### Install the gulp-cli via `npm install -g gulp-cli`   
 ### List your available tasks with `gulp --tasks-simple`  
 ### Start your default task with `gulp default`   
     This should be a wrapper for the watcher task
