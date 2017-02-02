@@ -107,3 +107,6 @@ gulp.task('watch', function () {
     gulp.watch(input.html, ['copy-html','w3cjs']);
     gulp.watch(input.images, ['image-opt']);
 });
+
+/*Initial*/
+gulp.task('init', ['copy-html', 'build-css', 'build-js', 'image-opt']);

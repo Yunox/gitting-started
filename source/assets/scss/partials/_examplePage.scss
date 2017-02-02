@@ -38,6 +38,11 @@
   display: block;
 }
 
+.center{
+  display: block;
+  margin: 0 auto;
+}
+
 .clearfix-demo {
   @extend %clearfix;
 }
