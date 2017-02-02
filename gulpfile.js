@@ -78,10 +78,12 @@ gulp.task('copy-html', function () {
         .pipe(gulp.dest(output.html));
 });
 
+/* Validate HTML */
 gulp.task('w3cjs', function () {
     gulp.src(output.html + '/*.html')
         .pipe(w3cjs())
-        .pipe(w3cjs.reporter());
+        .pipe(w3cjs.reporter())
+        .on('error', swallowError)
 });
 
 /*copy to network path */
@@ -94,6 +96,9 @@ gulp.task('publish-internal', function () {
         }
     })
 });
+
+/*swallow errors */
+function swallowError (error) { error.end(); }
 
 /* Watch these files for changes and run the task on update */
 gulp.task('watch', function () {

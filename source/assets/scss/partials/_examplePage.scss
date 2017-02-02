@@ -1,0 +1,65 @@
+/*
+ * This is just here for demo purposes
+ */
+
+ @include keyframes(fade-out) {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.animation-demo {
+  width: 100px;
+  height: 100px;
+  background: black;
+  @include animation('fade-out 5s infinite');
+}
+
+.transition-demo {
+  background-color: #3498db;
+  @include transition(background-color .3s ease);
+  &:hover {
+    background-color: #34495e;
+  }
+}
+
+.opacity-demo{
+  background-color: #3498db;
+  @include opacity(0.5);
+}
+
+.box-shadow-demo{
+  @include box-shadow(10px, 5px, 10px, rgba(0,0,0,0.6), false);
+}
+
+.box-demo{
+  margin: 0 auto;
+  width: 400px;
+  height: 400px;
+  display: block;
+}
+
+.clearfix-demo {
+  @extend %clearfix;
+}
+
+.parent{
+  width: 80%;
+  margin: 0 auto;
+  height: auto;
+  padding: 40px;
+  background-color: #27ae60;
+}
+
+.child{
+  margin-right: 6%;
+  width: 20%;
+  background-color: #ecf0f1;
+  height: 150px;
+  &:last-of-type{
+    margin-right: 0;
+  }
+}
+
+.float{
+  float: left;
+}
