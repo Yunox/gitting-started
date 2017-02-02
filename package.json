@@ -21,6 +21,7 @@
     "gulp-sourcemaps": "*",
     "gulp-concat": "*",
     "gulp": "*",
+    "gulp-cli": "*",
     "gulp-jshint": "*",
     "gulp-sass": "*",
     "gulp-util": "*",
