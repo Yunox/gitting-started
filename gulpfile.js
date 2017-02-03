@@ -9,6 +9,7 @@ const gulp = require('gulp'),
     fs = require('fs-extra'),
     rename = require("gulp-rename"),
     w3cjs = require('gulp-w3cjs'),
+    bs = require('browser-sync').create(),
 
     input = {
         'html': 'source/*.html',
@@ -43,7 +44,8 @@ gulp.task('build-css', function () {
         .pipe(sass())
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(output.sourcestylesheets))
-        .pipe(gulp.dest(output.stylesheets));
+        .pipe(gulp.dest(output.stylesheets))
+        .pipe(bs.reload({stream: true}));
 });
 
 /* minify css */
@@ -62,7 +64,8 @@ gulp.task('build-js', function () {
         //only uglify if gulp is ran with '--type production'
         .pipe(gutil.env.type === 'production' ? uglify() : gutil.noop())
         .pipe(sourcemaps.write())
-        .pipe(gulp.dest(output.javascript));
+        .pipe(gulp.dest(output.javascript))
+        .pipe(bs.reload({stream: true}));
 });
 
 /* optimize images */
@@ -75,7 +78,8 @@ gulp.task('image-opt', function () {
 /*copy html */
 gulp.task('copy-html', function () {
     return gulp.src(input.html)
-        .pipe(gulp.dest(output.html));
+        .pipe(gulp.dest(output.html))
+        .pipe(bs.reload({stream: true}));
 });
 
 /* Validate HTML */
@@ -84,6 +88,16 @@ gulp.task('w3cjs', function () {
         .pipe(w3cjs())
         .pipe(w3cjs.reporter())
         .on('error', swallowError)
+});
+
+/*sync browser with every edit*/
+gulp.task('browser-sync', function() {
+  bs.init({
+    proxy: {
+      target: "localhost:8080", // can be [virtual host, sub-directory, localhost with port]
+      ws: true // enables websockets
+    }
+});
 });
 
 /*copy to network path */
