@@ -41,3 +41,4 @@ jspm_packages
 public
 source/assets/stylesheets/*.css
 source/assets/stylesheets/main.css
+*.css
