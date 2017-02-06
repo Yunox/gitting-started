@@ -40,3 +40,4 @@ jspm_packages
 # CUSTOM
 public
 source/assets/stylesheets/*.css
+source/assets/stylesheets/main.css
