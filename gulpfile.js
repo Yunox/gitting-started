@@ -47,6 +47,7 @@ gulp.task('build-css', function () {
         .pipe(gulp.dest(output.sourcestylesheets))
         .pipe(gulp.dest(output.stylesheets))
         .pipe(reload({ stream:true }))
+
 });
 
 /* minify css */
@@ -89,6 +90,16 @@ gulp.task('w3cjs', function () {
     gulp.src(output.html + '/*.html')
         .pipe(w3cjs())
         .pipe(w3cjs.reporter())
+});
+
+/*sync browser with every edit*/
+gulp.task('browser-sync', function() {
+  bs.init({
+    proxy: {
+      target: "localhost:8080", // can be [virtual host, sub-directory, localhost with port]
+      ws: true // enables websockets
+    }
+});
 });
 
 /*copy to network path */
