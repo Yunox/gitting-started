@@ -1,6 +1,6 @@
 const gulp = require('gulp'),
     gutil = require('gulp-util'),
-    imagemin = require('gulp-imagemin'),
+    image = require('gulp-image'),
     jshint = require('gulp-jshint'),
     sass = require('gulp-sass'),
     cleanCSS = require('gulp-clean-css'),
@@ -73,7 +73,7 @@ gulp.task('build-js', function () {
 /* optimize images */
 gulp.task('image-opt', function () {
     gulp.src(input.images)
-        .pipe(imagemin())
+        .pipe(image())
         .pipe(gulp.dest(output.images))
         .pipe(reload({ stream:true }))
 });

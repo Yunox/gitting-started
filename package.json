@@ -25,7 +25,7 @@
     "gulp-jshint": "*",
     "gulp-sass": "*",
     "gulp-util": "*",
-    "gulp-imagemin": "*",
+    "gulp-image": "*",
     "fs-extra": "*",
     "gulp-clean-css": "*",
     "gulp-rename": "*",
